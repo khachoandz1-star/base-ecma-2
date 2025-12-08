@@ -1,0 +1,32 @@
+{
+  "students": [
+    {
+      "id": 2,
+      "name": "Hoàn đẹp trai",
+      "age": 19,
+      "subject": "Toán",
+      "major": "it"
+    },
+    {
+      "name": "hoàn béo",
+      "age": "20",
+      "subject": "tiếng anh",
+      "major": "ngôn ngữ",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "email": "khachoandz1@gmail.com",
+      "password": "$2a$10$Q4oZnwYUC/1L/l9zHdBFF.J.bnS3MZR9KlaCvJn9jiEMVySppycL.",
+      "username": "khachoandz1",
+      "id": 1
+    },
+    {
+      "email": "hoanmeo@gmail.com",
+      "password": "$2a$10$mGRgk8lBXnRFm4xUCotBU.SuhNnE/Uw9LPXEXFIssMnGincOnVXli",
+      "username": "hoanmeo",
+      "id": 2
+    }
+  ]
+}
