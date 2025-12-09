@@ -6,17 +6,20 @@ import { useState } from "react";
 
 function EditPage() {
   const API="http://localhost:3000";
+  const {id} =useParams();
 
   const [name,setName]=useState("");
    const [age,setAge]=useState("");
     const [subject,setSubject]=useState("");
      const [major,setMajor]=useState("");
+    
+     
      
 
   const submit=(e)=>{
     e.preventDefault();
 
-    axios.post(`${API}/students`,{
+    axios.put(`${API}/students/${id}`,{
       name,
       age,
       subject,
