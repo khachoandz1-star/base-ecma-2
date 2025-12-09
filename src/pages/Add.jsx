@@ -2,104 +2,89 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-
-
 function AddPage() {
-  const API="http://localhost:3000";
+  const API = "http://localhost:3000";
 
-  const [name,setName]=useState("");
-   const [age,setAge]=useState("");
-    const [subject,setSubject]=useState("");
-     const [major,setMajor]=useState("");
-     
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [subject, setSubject] = useState("");
+  const [major, setMajor] = useState("");
 
-  const submit=(e)=>{
+  const submit = (e) => {
     e.preventDefault();
 
-    axios.post(`${API}/students`,{
-      name,
-      age,
-      subject,
-      major,
-    
-    })
-    .then((response)=>{
-      setName("");
-      setAge("");
-      setSubject("");
-      setMajor("");
-    
-      toast.success("Thêm thành công");
-    })
-    .catch(()=>{
-      toast.error("Thêm sản phẩm không thành công");
-    })
-  }
- 
+    axios
+      .post(`${API}/students`, {
+        name,
+        age,
+        subject,
+        major,
+      })
+      .then(() => {
+        setName("");
+        setAge("");
+        setSubject("");
+        setMajor("");
 
-
+        toast.success("Thêm thành công");
+      })
+      .catch(() => {
+        toast.error("Thêm sản phẩm không thành công");
+      });
+  };
 
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Thêm mới</h1>
 
-      <form className="space-y-6" onSubmit={submit} > 
-        {/* Text input */}
+      <form className="space-y-6" onSubmit={submit}>
+        {/* Name */}
         <div>
-          <label htmlFor="text" className="block font-medium mb-1">
-            Name
-          </label>
+          <label className="block font-medium mb-1">Name</label>
           <input
             type="text"
             value={name}
-            onChange={(e)=> setName(e.target.value)}
-           
+            onChange={(e) => setName(e.target.value)}
             className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
-         <div>
-          <label htmlFor="text" className="block font-medium mb-1">
-            age
-          </label>
+        {/* Age */}
+        <div>
+          <label className="block font-medium mb-1">Age</label>
           <input
-            type="text"
+            type="number"
             value={age}
-             onChange={(e)=> setAge(e.target.value)}
-           
+            onChange={(e) => setAge(e.target.value)}
             className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
-         <div>
-          <label htmlFor="text" className="block font-medium mb-1">
-            subject
-          </label>
+        {/* Subject */}
+        <div>
+          <label className="block font-medium mb-1">Subject</label>
           <input
             type="text"
             value={subject}
-               onChange={(e)=> setSubject(e.target.value)}
-           
-            
-            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-         <div>
-          <label htmlFor="text" className="block font-medium mb-1">
-            major
-          </label>
-          <input
-            type="text"
-            value={major}
-              onChange={(e)=> setMajor(e.target.value)}
-           
-            
+            onChange={(e) => setSubject(e.target.value)}
             className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
         
+        <div>
+          <label className="block font-medium mb-1">Major</label>
+          <select
+            value={major}
+            onChange={(e) => setMajor(e.target.value)}
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">Chọn ngành học</option>
+            <option value="FE">FE</option>
+            <option value="BE">BE</option>
+            <option value="Mobile">Mobile</option>
+          </select>
+        </div>
 
         {/* Submit button */}
         <button

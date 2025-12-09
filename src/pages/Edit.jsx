@@ -79,17 +79,17 @@ function EditPage() {
         </div>
 
          <div>
-          <label htmlFor="text" className="block font-medium mb-1">
-            major
-          </label>
-          <input
-            type="text"
+          <label className="block font-medium mb-1">Major</label>
+          <select
             value={major}
-              onChange={(e)=> setMajor(e.target.value)}
-           
-            
-            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+            onChange={(e) => setMajor(e.target.value)}
+            className="w-full border rounded-lg px-3 py-2"
+          >
+            <option value="">-- Chọn ngành học --</option>
+            <option value="FE">FE</option>
+            <option value="BE">BE</option>
+            <option value="Mobile">Mobile</option>
+          </select>
         </div>
 
         
